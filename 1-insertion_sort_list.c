@@ -1,8 +1,11 @@
 #include "sort.h"
 
 /**
- *
- */
+  * insertion_sort_list - sorts a list with insertion sort
+  * algorithm
+  * @list: the list to be sorted
+  */
+
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *current = NULL;
@@ -33,8 +36,8 @@ void insertion_sort_list(listint_t **list)
 				swapper->prev = swapper2;
 				swapper2->next = swapper;
 				swapper = swapper2->prev;
-                if (swapper2->prev == NULL)
-                    *list = swapper2;
+				if (swapper2->prev == NULL)
+					*list = swapper2;
 				print_list(*list);
 			}
 			else
