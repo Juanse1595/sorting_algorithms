@@ -33,6 +33,8 @@ void insertion_sort_list(listint_t **list)
 				swapper->prev = swapper2;
 				swapper2->next = swapper;
 				swapper = swapper2->prev;
+                if (swapper2->prev == NULL)
+                    *list = swapper2;
 				print_list(*list);
 			}
 			else
