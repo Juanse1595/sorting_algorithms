@@ -8,7 +8,7 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	unsigned long int idx, j, min;
+	size_t idx, j, min;
 	int temp = 0;
 
 	if (array == NULL || size < 1)
