@@ -8,7 +8,7 @@
 
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL || size < 2)	
+	if (array == NULL || size < 2)
 		return;
 	qs(array, 0, size - 1, size);
 }
@@ -18,11 +18,13 @@ void quick_sort(int *array, size_t size)
   * @array: array to be sorted
   * @left: left edge of the array
   * @right: right edge of the array
+  * @size: size of the array
   */
 
 void qs(int *array, int left, int right, size_t size)
 {
 	int pivot;
+
 	if (left >= right)
 	{
 		return;
@@ -37,6 +39,7 @@ void qs(int *array, int left, int right, size_t size)
   * @array: array to be sorted
   * @left: left edge of the array
   * @right: right edge of the array
+  * @size: size of the array
   * Return: the index of the pivot
   */
 
@@ -47,18 +50,20 @@ int partition(int *array, int left, int right, size_t size)
 
 	for (j = left; j < right; j++)
 	{
-		if (array[j] < pivot)
+		if (array[j] <= pivot)
 		{
 			i++;
 			temp = array[j];
 			array[j] = array[i];
 			array[i] = temp;
+			if (j != i)
+				print_array(array, size);
 		}
-		print_array(array, size);
-
 	}
 	temp = array[right];
 	array[right] = array[i + 1];
 	array[i + 1] = temp;
+	if ((i + 1) != right)
+		print_array(array, size);
 	return (i + 1);
 }
