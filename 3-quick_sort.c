@@ -23,7 +23,7 @@ void quick_sort(int *array, size_t size)
 
 void qs(int *array, int left, int right, size_t size)
 {
-	int pivot;
+	size_t pivot;
 
 	if (left >= right)
 	{
