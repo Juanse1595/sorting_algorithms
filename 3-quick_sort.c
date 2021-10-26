@@ -1,18 +1,6 @@
 #include "sort.h"
 
-/**
-  * quick_sort - calls the qs function
-  * @array: array to be sorted
-  * @size: size of the array
-  */
-
-void quick_sort(int *array, size_t size)
-{
-	if (array == NULL || size < 2)
-		return;
-	qs(array, 0, size - 1, size);
-}
-
+int partition(int *array, int left, int right, size_t size);
 /**
   * qs - quick sort function
   * @array: array to be sorted
@@ -71,4 +59,17 @@ int partition(int *array, int left, int right, size_t size)
 		print_array(array, size);
 	}
 	return (i + 1);
+}
+
+/**
+  * quick_sort - calls the qs function
+  * @array: array to be sorted
+  * @size: size of the array
+  */
+
+void quick_sort(int *array, size_t size)
+{
+	if (array == NULL || size < 2)
+		return;
+	qs(array, 0, size - 1, size);
 }
