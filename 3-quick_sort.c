@@ -25,13 +25,14 @@ void qs(int *array, int left, int right, size_t size)
 {
 	size_t pivot = 0;
 
-	if (left >= right)
+	if (left < right)
 	{
-		return;
+		pivot = partition(array, left, right, size);
+		if (pivot > 0)
+			qs(array, left, pivot - 1, size);
+		if (pivot != size)
+			qs(array, pivot + 1, right, size);
 	}
-	pivot = partition(array, left, right, size);
-	qs(array, left, pivot - 1, size);
-	qs(array, pivot + 1, right, size);
 }
 
 /**
